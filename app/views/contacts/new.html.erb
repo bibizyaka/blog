@@ -1,7 +1,16 @@
 <h2>Contacts</h2>
 
 <%=form_for :contact, url: '/contacts' do |f| %>
-   
+   <p style="color: red;">
+
+   	  <% if @contact && @contact.errors.any? %> 
+   	      <ul>
+   	       <% @contact.errors.full_messages.each do |err| %>
+   	          <li><%=err %></li>
+   	       <% end %>
+   	      </ul> 
+   	     <% end %> 
+   </p>
    <p>
 	 <%=f.label :email %><br/>
 	 <%=f.email_field :email %>
