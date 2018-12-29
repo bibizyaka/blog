@@ -15,11 +15,12 @@ get 'articles' => 'articles#index'
 #get 'articles' => 'articles#new'
 resources :articles, only: [:new, :create, :show, :edit, :update], path_names: { :new => '' }
 
-#about
-resources :about
-
 #terms
-resources :terms
+                #cont def
+get 'terms' => 'pages#terms'
+
+#about          #cont def
+get 'about' => 'pages#about'
 
 end #rails do
 
