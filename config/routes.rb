@@ -14,7 +14,7 @@ resource :contacts, only: [:new, :create]#, path_names: { :new => '' }
 #get 'articles/new' => 'articles#new'
 get 'articles' => 'articles#index'
 #get 'articles' => 'articles#new'
-resources :articles, only: [:new, :create, :show, :edit, :update]#, path_names: { :new => '' }
+resources :articles, only: [:new, :create, :show, :edit, :update, :destroy]#, path_names: { :new => '' }
 
 #terms
                 #cont def

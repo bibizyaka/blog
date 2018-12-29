@@ -1,12 +1,12 @@
 class ArticlesController < ApplicationController
    
    def index
-   
-       @article = Article.all
-      
+
+       @article = Article.all    
    end
 
-   def show 
+   def show
+
       @article = Article.find(params[:id])
    end
 
@@ -17,9 +17,10 @@ class ArticlesController < ApplicationController
       #render plain: params[:article]
       @article = Article.new(article_params)
       if @article.save
-        redirect_to @article
-          #nothing...cause already saved in if statement
+     
+          redirect_to @article
       else
+     
            render action: 'new'
       end
     end #create
@@ -29,22 +30,33 @@ class ArticlesController < ApplicationController
    end #edit
 
    def update
+
       @article = Article.find(params[:id])
+    
       if @article.update(article_params)
+    
          redirect_to @article
       else
-          render action: 'edit'
+
+         render action: 'edit'
       end
 
    end# update
 
-    private
+   def destroy
 
-       def article_params
+      @article = Article.find(params[:id])
+      @article.destroy
+      redirect_to @article, notice: "Delete success"
+      
+   end
 
-         params.require(:article).permit(:title, :text)          
-       end
+   private
 
+      def article_params
+
+         params.require(:article).permit(:title, :text, :id, :created_at, :updated_at)          
+      end
 
 
 end #class
