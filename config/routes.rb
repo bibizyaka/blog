@@ -14,7 +14,7 @@ resource :contacts, only: [:new, :create] #, path_names: { :new => '' }
 get 'articles' => 'articles#index'
 #resources :articles, only: [:new, :create, :show, :edit, :update, :destroy]#, path_names: { :new => '' }
 resources :articles do 
-    resource :comments, only: [:new, :create, :show]
+    resource :comments, only: [:create, :show]
 end
 #terms
                 #cont def

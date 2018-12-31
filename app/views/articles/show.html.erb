@@ -2,7 +2,25 @@
 <h2><%=@article.title %></h2>
 <p>
 	<%=@article.text %>
-</p><hr/>
+</p>
+<hr/>
+
+<!--list of avaialable comments -->
+<h2>Comments:</h2>
+<div style="margin: 20px;">
+  <p>
+    <%@article.comments.each do |comment| %>
+    
+       <p>Comment | <%=comment.id%></p>
+       <p>Name | <%=comment.author%></p>
+       <p>Body | <%=comment.body%></p>
+       <p>Updated | <%=comment.updated_at%></p>
+       <hr/>
+
+     <%end%>
+   
+   </p>
+</div>
 <!-- add comment form -->
 <h2>Add Comment</h2>
 <p>
