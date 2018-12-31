@@ -1,4 +1,4 @@
-<h1>Show Page</h1>
+<h1>Article</h1>
 <h2><%=@article.title %></h2>
 <p>
 	<%=@article.text %>
@@ -6,20 +6,24 @@
 <hr/>
 
 <!--list of avaialable comments -->
-<h2>Comments:</h2>
+<h2>Comments</h2>
 <div style="margin: 20px;">
+	<% if @article.comments.size == 0 %>
+           <div>no comments yet...</div>
+    <% else %> 
   <p>
     <%@article.comments.each do |comment| %>
     
-       <p>Comment | <%=comment.id%></p>
-       <p>Name | <%=comment.author%></p>
-       <p>Body | <%=comment.body%></p>
-       <p>Updated | <%=comment.updated_at%></p>
+       <p>
+       	 <i><%=comment.created_at%></i>
+       	 <i><%=comment.author%> said:</i></br>
+         <p><%=comment.body%></p>
+      </p>
        <hr/>
 
      <%end%>
-   
    </p>
+   <% end %>
 </div>
 <!-- add comment form -->
 <h2>Add Comment</h2>
