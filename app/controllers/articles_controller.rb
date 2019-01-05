@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+
    protect_from_forgery 
    before_action :authenticate_user!, :only => [:new, :create]
 
@@ -16,15 +17,19 @@ class ArticlesController < ApplicationController
    end
 
    def create
-      #render plain: params[:article]
-      @article = Article.new(article_params)
-      if @article.save
+      #render plain: params[:article]\
+     # @user = User.find(params[:id])
+     # if @user.articles.create(comment_params)
+      #@user = User.article
+      #raise params.inspect
+       @article = Article.new(article_params)
+       if @article.save
      
-          redirect_to @article
-      else
+           redirect_to @article, notice: "Create success"
+       else
      
-           render action: 'new'
-      end
+            render action: 'new'
+       end
     end #create
    
    def edit # for loading the record in view for update
@@ -37,7 +42,7 @@ class ArticlesController < ApplicationController
     
       if @article.update(article_params)
     
-         redirect_to @article
+         redirect_to @article, notice: "Update success" 
       else
 
          render action: 'edit'
@@ -56,8 +61,10 @@ class ArticlesController < ApplicationController
    private
 
       def article_params
+                                                        #user_id 
+         params.require(:article).permit(:title, :text, :userid)          
+      #   raise params.inspect
 
-         params.require(:article).permit(:title, :text, :id, :created_at, :updated_at)          
       end
 
 

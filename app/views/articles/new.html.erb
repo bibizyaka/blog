@@ -2,6 +2,7 @@
 
 <%#= form_for :article, url: '/articles' do |f| %>
 <%= form_for :article, url: articles_path do |f| %>
+<%#= form_for([ @user, @user.articles.build ])do |f| %>
 	<p>
 	   <% if @article && @article.errors.any? %>
 	
@@ -20,6 +21,7 @@
 	   <%=f.label :text %><br/>
 	   <%=f.text_area :text %>
 	</p>
+	<span><%=f.text_field :userid, :value => current_user.id.to_i %></span>
 	<p>
 	   <%=f.submit %>
 	</p>
