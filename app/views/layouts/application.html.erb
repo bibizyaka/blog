@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blog</title>
+    <title>My Blog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,12 +10,14 @@
   </head>
 
   <body>
+    <div class="container">
+      
+
     <% if user_signed_in? %>
      Signed: <%=current_user.username%> | <%=link_to 'Sign Out', destroy_user_session_path, method: :delete%>
        <!-- <a href="/users/sign_out" data-method="delete">Sign out</a> -->
     <% else %>
        <%=link_to 'Sign In', new_user_session_path %>
-       <!-- <a href="/users/sign_in">Sign In!</a> -->
      <% end %>
    <!-- <p class="notice"><%= notice %></p> -->
    <!-- <p class="alert"><%= alert %></p> -->
@@ -25,5 +27,6 @@
 <% end -%>
 
     <%= yield %>
+  </div> <!-- container -->
   </body>
 </html>
