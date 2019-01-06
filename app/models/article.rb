@@ -8,5 +8,8 @@ class Article < ApplicationRecord
  def subject 
    title # return title
  end
+ def last_comment
+    comments.last
+ end
 
 end #class

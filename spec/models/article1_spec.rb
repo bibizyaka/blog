@@ -14,7 +14,7 @@ describe Article do
     end
     
     describe "associations" do
-        it { should have_many(:comments)}
+        it { should have_many(:comments) }
     end
 
    describe "#subject" do
@@ -22,11 +22,22 @@ describe Article do
      it "returns the article title" do
        #creating object in a tricky way
        # create method requires gem = factory girl
-       article = article.create(:article, title: "Lorem ipsum")
+       article = create(:article, title: "Lorem ipsum")
         
         #assert - checking  
        expect(article.subject).to eq "Lorem ipsum"
      end
    end
 
-   end #Article
+   describe "#last_comment" do
+      it "returns the last comment" do
+        # creating article this time with comments
+        article = create(:article_with_comments)
+        
+        #assert
+        expect(article.last_comment.body).to eq "Comment body 3"
+      end
+
+   end
+
+end #Article
