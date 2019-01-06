@@ -46,6 +46,7 @@ group :development, :test do
   gem 'capybara', '>= 2.15' 
   gem 'shoulda-matchers', '4.0.0.rc1'
   gem 'rails-controller-testing' # If you are using Rails 5.x
+  gem "factory_girl_rails", "~> 4.0"
 
    gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome

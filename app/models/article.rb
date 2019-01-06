@@ -5,4 +5,8 @@ class Article < ApplicationRecord
    validates :title, presence: true
    validates :text, presence: true
 
-end 
+ def subject 
+   title # return title
+ end
+
+end #class
