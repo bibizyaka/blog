@@ -10,15 +10,22 @@ feature "Account Creation" do
    end #scenario
 
    scenario "allows user to create account" do
-    visit new_user_registration_path 
+     sign_up
+     expect(page).to have_content I18n.t('devise.registrations.signed_up')
+   end #scenario
+
+   def sign_up
+   
+     visit new_user_registration_path 
     
-      fill_in 'Email', with: 'testing@test.com'
-      fill_in 'Username', with: 'testing sign up page'
-      fill_in 'Password', with: '123456'
-      fill_in 'Password confirmation', with: '123456'
+     fill_in 'Email', with: 'testing@test.com'
+     fill_in 'Username', with: 'testing sign up page'
+     fill_in 'Password', with: '123456'
+     fill_in 'Password confirmation', with: '123456'
+
+     click_button 'Sign up'
     
-    click_button 'Sign up'
-    expect(page).to have_content I18n.t('devise.registrations.signed_up')
-   end
- 
+   end #sign_up
+
+
 end #feature
