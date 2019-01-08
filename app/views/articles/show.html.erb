@@ -10,8 +10,8 @@
 <div style="margin: 20px;">
 	<% if @article.comments.size == 0 %>
            <div>no comments yet...</div>
-    <% else %> 
-  <p>
+  <% else %> 
+    <p>
     <%@article.comments.each do |comment| %>
     
        <p>
@@ -19,9 +19,9 @@
        	 <i><%=comment.author%> said:</i></br>
          <p><%=comment.body%></p>
       </p>
-       <hr/>
+      <hr/>
 
-     <%end%>
+    <%end%>
    </p>
    <% end %>
 </div>
@@ -29,7 +29,21 @@
 <h2>Add Comment</h2>
 <p>
 	<%= form_for([ @article, @article.comments.build ]) do |f| %>
+  <%#= form_for([ @article, @comment ]) do |f| %>
 	
+<!--          <%# if @article.comments && @article.comments.errors.any? %>
+  
+           <ul>
+              <%# @comments.errors.full_messages.each do |err| %>
+         
+                 <li style="color: red;"><%#= err %></li>
+         
+              <%# end %>  
+           </ul>
+         
+         <%# end %>  
+ -->
+
 	   <%=f.hidden_field :author, value: current_user.username %>
 	<p>
 	   <%=f.text_area :body, {:rows => "10", :cols => "80"} %>
