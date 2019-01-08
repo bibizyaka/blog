@@ -6,11 +6,14 @@ devise_for :users
 #get '/' => 'home#index'
 get '/' => 'articles#index'
 
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 root to: "home#index"
 
 #contacts
+get '/contacts' => 'contacts#new'
+
 resource :contacts, only: [:new, :create] #, path_names: { :new => '' }
 #resource :contacts, only: [:create]
 
