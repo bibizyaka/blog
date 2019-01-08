@@ -10,11 +10,10 @@ class ContactsController < ApplicationController
      #render plain: @contact
      
      if @contact.save
-      #  @contact.save
+        redirect_to '/contacts', :notice => "Message Sent!"
     else
         render action: 'new'
     end
-
 
    end #create
 

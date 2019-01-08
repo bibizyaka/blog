@@ -1,6 +1,6 @@
 <h2> <%= t('contacts.contact_us') %></h2>
 
-<%=form_for :contact, url: '/contacts' do |f| %>
+<%=form_for :contact, url: contacts_path do |f| %>
    <p style="color: red;">
 
    	  <% if @contact && @contact.errors.any? %> 
@@ -20,7 +20,7 @@
 	 <%=f.text_area :text %>
    </p>
    <p>
-	 <%=f.submit 'Save Message' %>
+	 <%=f.submit 'Send Message' %>
 	</p>
 
 <% end %>
